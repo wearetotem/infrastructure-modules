@@ -18,9 +18,10 @@ resource "doppler_config" "this" {
 }
 
 data "doppler_secrets" "this" {
-  config = doppler_config.this.id
+  config = doppler_config.this.name
   project = var.project
 }
+
 output "all_secrets" {
   value = data.doppler_secrets.this.map
 }
