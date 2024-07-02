@@ -4,6 +4,12 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "project" {
+  type        = string
+  default     = "global"
+}
+
+
 variable "slug" {
   description = "the doopler slug"
   type        = string

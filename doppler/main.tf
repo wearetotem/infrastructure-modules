@@ -12,13 +12,14 @@ provider "doppler" {
 }
 
 resource "doppler_config" "this" {
-  project     = "global"
+  project     = var.project
   environment = var.environment
   name        = "${var.environment}_${var.slug}"
 }
 
 data "doppler_secrets" "this" {
-  config = doppler_config.this.id 
+  config = doppler_config.this.id
+  project = var.project
 }
 output "all_secrets" {
   value = data.doppler_secrets.this.map
